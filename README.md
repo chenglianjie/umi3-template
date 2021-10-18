@@ -1,14 +1,12 @@
-# umi project
+# umi3 模板
 
-## Getting Started
-
-Install dependencies,
+下载依赖
 
 ```bash
 $ yarn
 ```
 
-Start the dev server,
+运行项目
 
 ```bash
 $ yarn start
