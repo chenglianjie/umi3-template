@@ -21,6 +21,7 @@ function Login() {
       message.error(msg);
     }
   };
+  console.log('设置的环境变量', API);
   // 如果已经登录,跳转到list路由
   const islogin = localStorage.getItem('token');
   if (islogin) {
