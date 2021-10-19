@@ -28,6 +28,7 @@ function Login() {
     return <Redirect to="/list" />;
   }
   let a = 5;
+  let b = 6;
   return (
     <div className="login-module">
       <div className="head-title">
