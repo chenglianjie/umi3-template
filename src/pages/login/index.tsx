@@ -15,17 +15,16 @@ function Login() {
         return;
       }
       localStorage.setItem('token', 'logining');
-      history.replace('/');
-      console.log('>>>>>>>>>>>>>>>>>>', history);
+      history.push('/list');
     } catch (error: any) {
       let msg = error?.response?.data?.msg;
       message.error(msg);
     }
   };
+  // 如果已经登录,跳转到list路由
   const islogin = localStorage.getItem('token');
-  console.log('登录里面的login', islogin);
   if (islogin) {
-    return <Redirect to="/" />;
+    return <Redirect to="/list" />;
   }
   return (
     <div className="login-module">

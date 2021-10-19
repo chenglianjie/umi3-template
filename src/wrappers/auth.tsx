@@ -1,8 +1,8 @@
 import { Redirect } from 'umi';
 
+// 权限路由判断
 export default (props) => {
   const login = localStorage.getItem('token');
-  console.log('权限路由里面的判断', login);
   if (login) {
     return <div>{props.children}</div>;
   } else {

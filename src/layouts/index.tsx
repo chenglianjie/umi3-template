@@ -1,4 +1,4 @@
-import { Redirect, history } from 'umi';
+import { history } from 'umi';
 import { Layout, Menu, Breadcrumb, Button } from 'antd';
 import {
   UserOutlined,
@@ -9,10 +9,10 @@ import './index.less';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 export default (props: any) => {
-  // const login = localStorage.getItem('token');
-  // console.log('layout里的login', login);
-  console.log('我是layout组件');
-  // if{
+  const LoginOut = () => {
+    history.push('/login');
+    localStorage.clear();
+  };
   return (
     <Layout>
       <Header className="header">
@@ -24,7 +24,9 @@ export default (props: any) => {
           </Menu>
         </div>
         <div className="login-out">
-          <Button type="primary">退出登录</Button>
+          <Button onClick={LoginOut} type="primary">
+            退出登录
+          </Button>
         </div>
       </Header>
       <Layout>
@@ -83,8 +85,4 @@ export default (props: any) => {
       </Layout>
     </Layout>
   );
-  // }
-  // } else {
-  //   return <Redirect to="/login" />;
-  // }
 };
