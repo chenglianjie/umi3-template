@@ -2,11 +2,25 @@ import { useState } from 'react';
 import { useHistory, Redirect } from 'umi';
 import { Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import axios from '../../request/request';
 import './login.less';
+// import { request } from 'umi';
 function Login() {
+  // console.log('request', request);
   const [userName, setUserName] = useState<string>(''); // 账号
   const [password, setPassword] = useState<string>(''); // 密码
   const history = useHistory();
+  const request = () => {
+    try {
+      const data = axios.get('http://120.55.193.14:3030/shoppingCat', {
+        filter: 'normal',
+        size: ['XS', 'S', 'M', 'ML', 'L', 'XL', 'XXL'],
+      });
+      console.log('data', data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   // 确认登录
   const login = async () => {
     try {
@@ -68,6 +82,15 @@ function Login() {
             type="primary"
           >
             登录
+          </Button>
+          <Button
+            onClick={() => {
+              request();
+            }}
+            style={{ width: 324 }}
+            type="primary"
+          >
+            测试请求
           </Button>
         </div>
         <footer className="footers">

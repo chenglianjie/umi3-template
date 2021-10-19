@@ -1,10 +1,6 @@
 import { history } from 'umi';
 import { Layout, Menu, Breadcrumb, Button } from 'antd';
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-} from '@ant-design/icons';
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import './index.less';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -36,7 +32,7 @@ export default (props: any) => {
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
             style={{ height: '100%', borderRight: 0 }}
-            onClick={({ key, keyPath }) => {
+            onClick={({ key }) => {
               // console.log('点击menu', key, keyPath);
               history.push(key);
             }}
@@ -53,11 +49,7 @@ export default (props: any) => {
               <Menu.Item key="7">option7</Menu.Item>
               <Menu.Item key="8">option8</Menu.Item>
             </SubMenu>
-            <SubMenu
-              key="sub3"
-              icon={<NotificationOutlined />}
-              title="subnav 3"
-            >
+            <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
               <Menu.Item key="9">option9</Menu.Item>
               <Menu.Item key="10">option10</Menu.Item>
               <Menu.Item key="11">option11</Menu.Item>
