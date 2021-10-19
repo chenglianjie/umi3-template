@@ -27,14 +27,12 @@ function Login() {
   if (islogin) {
     return <Redirect to="/list" />;
   }
+  let a = 5;
   return (
     <div className="login-module">
       <div className="head-title">
         <div className="logo-title">
-          <img
-            src={require('@/assets/logo/loginLogo.png')}
-            alt="几维安全logo"
-          />
+          <img src={require('@/assets/logo/loginLogo.png')} alt="几维安全logo" />
           <span>测试企业</span>
         </div>
         <div className="small-title">泛兮科技后台管理平台</div>
@@ -74,11 +72,7 @@ function Login() {
           </Button>
         </div>
         <footer className="footers">
-          <a
-            target="_blank"
-            className="web-title"
-            href="https://www.kiwisec.com/"
-          >
+          <a target="_blank" className="web-title" href="https://www.kiwisec.com/">
             几维安全官网
           </a>
           <span className="icons">&</span>
