@@ -2,6 +2,7 @@ import type { RequestConfig } from 'umi';
 
 // 请求拦截器
 const requestInterceptor = (url, options) => {
+  // 给每个请求带上token
   let token = localStorage.getItem('token') || '';
   const authHeader = { Authorization: `Bearer ${token}` };
   return {
@@ -25,7 +26,6 @@ export const request: RequestConfig = {
       };
     },
   },
-  middlewares: [],
+  // 请求拦截器
   requestInterceptors: [requestInterceptor],
-  responseInterceptors: [],
 };
