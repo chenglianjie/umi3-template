@@ -28,6 +28,6 @@ export default defineConfig({
   ],
   history: { type: 'hash' },
   define: {
-    API: 'dev',
+    CurrentEnvironment: 'dev',
   },
 });
