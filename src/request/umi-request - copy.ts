@@ -64,17 +64,10 @@ const apiPreFix: ApiPrefix = {
 };
 // request拦截器, 携带token,以及根据环境,配置不同的请求前缀
 request.interceptors.request.use((url: string, options: RequestOptionsInit) => {
-  // 不携带token的请求数组
-  let notCarryTokenArr: string[] = [];
-  if (notCarryTokenArr.includes(url)) {
-    return {
-      url: `${apiPreFix[CurrentEnvironment]}${url}`,
-      options,
-    };
-  }
+  console.log('请求拦截器的options', options);
   // 给每个请求带上token
   let token = localStorage.getItem('tokens') || '';
-  let headers = {
+  const headers = {
     Authorization: `Bearer ${token}`,
   };
   return {
@@ -85,13 +78,19 @@ request.interceptors.request.use((url: string, options: RequestOptionsInit) => {
 
 /**
  * @url 请求的url
- * @parameter 上传的参数n
+ * @parameter 上传的参数
+ * @skipErrorHandler 是否跳过错误处理
+ * @carryToken 是否携带token
  */
 interface GetAndPostRuquest {
-  (url: string, parameter?: Record<string, unknown>): Promise<any>;
+  (
+    url: string,
+    parameter?: Record<string, unknown>,
+    skipErrorHandler?: boolean,
+    carryToken?: boolean,
+  ): Promise<any>;
 }
 
-// 封装的get请求和post请求
 const get: GetAndPostRuquest = async (url, parameter) => {
   try {
     const res = await request(url, { method: 'get', params: parameter });

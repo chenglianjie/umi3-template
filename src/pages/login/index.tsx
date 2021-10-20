@@ -3,16 +3,16 @@ import { useState } from 'react';
 import { useHistory, Redirect } from 'umi';
 import { Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import axios from '../../request/request';
+import axios from '@/request/umi-request';
 import './login.less';
-import requestss from '../../request/umi-request';
+// import requestss from '../../request/umi-request';
 // import { request } from 'umi';
 function Login() {
   const [userName, setUserName] = useState<string>(''); // 账号
   const [password, setPassword] = useState<string>(''); // 密码
   const history = useHistory();
   const request = async () => {
-    const data = await requestss.get('error');
+    const data = await axios.get('error');
     console.log('data', data);
     // try {
     //   const data = axios.get('http://120.55.193.14:3030/shoppingCat', {
